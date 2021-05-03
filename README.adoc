@@ -1,0 +1,7 @@
+== k3s ops
+
+a reasonable set of service that ops could provide?
+
+Vanilla, provide
+
+Curated to fit on a Raspberry Pi cluster.
