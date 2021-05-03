@@ -10,7 +10,7 @@ spec:
       chart: cert-manager
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: jetstack
         namespace: sources
       version: ">=v1.3.0"
   interval: 180m
