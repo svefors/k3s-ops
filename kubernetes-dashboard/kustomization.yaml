@@ -7,5 +7,5 @@ namespace: kubernetes-dashboard
 resources:
   - namespace.yaml
   - source.yaml
-  - kubernetes-dashboard.yaml
+  - release.yaml
   - admin-user.yaml
