@@ -1,0 +1,75 @@
+#apiVersion: cert-manager.io/v1
+#kind: ClusterIssuer
+#metadata:
+#    name: letsencrypt-production
+#    namespace: ops
+#spec:
+#    acme:
+#        # You must replace this email address with your own.
+#        # Let's Encrypt will use this to contact you about expiring
+#        # certificates, and issues related to your account.
+#        email: ENC[AES256_GCM,data:VdVss4KMCU3LiqJrPGCJ7po=,iv:E6EJabzwrUZm4npaqdh0y+99lT0xYDC2KMS3V9FjH10=,tag:reI9GB+IJr2PunzZQT5/bg==,type:str]
+#        server: https://acme-v02.api.letsencrypt.org/directory
+#        privateKeySecretRef:
+#            # Secret resource that will be used to store the account's private key.
+#            name: letsencrypt-production
+#        # Add a single challenge solver, HTTP01 using nginx
+#        solvers:
+#            - http01:
+#                ingress:
+#                    class: nginx
+#sops:
+#    kms: []
+#    gcp_kms: []
+#    azure_kv: []
+#    hc_vault: []
+#    age: []
+#    lastmodified: "2021-05-05T00:50:10Z"
+#    mac: ENC[AES256_GCM,data:w9EwVdEjiFYIm2T5GV3RFz7Neb/g2F+IzqrRIMDJD691yRv/kkMpd2JuThcbTtjlJGEzf9idT8v/iq6JQhKjYRPHOw0tAPehse5n/jrmSeIJQiYKatjhsF2U7G53ispSbYoVT7rlzCxo1Y7zz9kcvncpSyUcUFJqzadnVZN31pQ=,iv:2JekAiqupJ70Xkm+Gd9Eun9QtJKX0TIKg2llGcdlbJM=,tag:2G8fR2Nq0uiVT1/a2W8d4g==,type:str]
+#    pgp: []
+#    encrypted_regex: ^(data|stringData|email)$
+#    version: 3.7.1
+#---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: letsencrypt-staging
+    namespace: ops
+spec:
+    acme:
+        # You must replace this email address with your own.
+        # Let's Encrypt will use this to contact you about expiring
+        # certificates, and issues related to your account.
+        email: ENC[AES256_GCM,data:1DOcZnY7VqG7wVwpWrfFPYU=,iv:6ntbfTBmeFMpqJycRWrK6PVkYQKB1Wa0LQXeb6D5+y0=,tag:zGbaT+cN4fRWQMyVSyykbQ==,type:str]
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+            # Secret resource that will be used to store the account's private key.
+            name: letsencrypt-staging
+        # Add a single challenge solver, HTTP01 using nginx
+        solvers:
+            - http01:
+                ingress:
+                    class: nginx
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-05-05T00:50:10Z"
+    mac: ENC[AES256_GCM,data:w9EwVdEjiFYIm2T5GV3RFz7Neb/g2F+IzqrRIMDJD691yRv/kkMpd2JuThcbTtjlJGEzf9idT8v/iq6JQhKjYRPHOw0tAPehse5n/jrmSeIJQiYKatjhsF2U7G53ispSbYoVT7rlzCxo1Y7zz9kcvncpSyUcUFJqzadnVZN31pQ=,iv:2JekAiqupJ70Xkm+Gd9Eun9QtJKX0TIKg2llGcdlbJM=,tag:2G8fR2Nq0uiVT1/a2W8d4g==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|email)$
+    version: 3.7.1
+---
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-05-05T00:50:10Z"
+    mac: ENC[AES256_GCM,data:w9EwVdEjiFYIm2T5GV3RFz7Neb/g2F+IzqrRIMDJD691yRv/kkMpd2JuThcbTtjlJGEzf9idT8v/iq6JQhKjYRPHOw0tAPehse5n/jrmSeIJQiYKatjhsF2U7G53ispSbYoVT7rlzCxo1Y7zz9kcvncpSyUcUFJqzadnVZN31pQ=,iv:2JekAiqupJ70Xkm+Gd9Eun9QtJKX0TIKg2llGcdlbJM=,tag:2G8fR2Nq0uiVT1/a2W8d4g==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|email)$
+    version: 3.7.1

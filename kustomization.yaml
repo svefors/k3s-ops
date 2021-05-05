@@ -5,6 +5,8 @@ kind: Kustomization
 resources:
   - sources
   - cert-manager
-#  - nginx
+  - nginx
   - kubernetes-dashboard
-  #  - cluster-monitoring
+  - minio
+  - longhorn
+  - cluster-monitoring

@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: minio-operator
+  namespace: minio
+spec:
+  interval: 1m
+  url: https://github.com/minio/operator.git
+  ref:
+    tag: v4.0.1
+  ignore: |
+    # exclude all
+    /*
+    # include deploy dir
+    !/helm/minio-operator

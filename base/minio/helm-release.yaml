@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio-operator
+  namespace: minio
+spec:
+  releaseName: minio-operator
+  chart:
+    spec:
+      chart: helm/minio-operator
+      sourceRef:
+        kind: GitRepository
+        name: minio-operator
+        namespace: minio
+      version: "4.0.9"
+  interval: 180m
+  install:
+    crds: CreateReplace
+  upgrade:
+    crds: CreateReplace
+  values:
+    tenants:
+#    operator:
+#      securityContext:
+#        runAsUser: 1000
+#        runAsGroup: 1000
+#        runAsNonRoot: true
