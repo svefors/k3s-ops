@@ -9,5 +9,5 @@ resources:
   - ../base/kubernetes-dashboard
 #  - ../../apps/minio
 #  - ../../apps/longhorn
-#  - ../base/cluster-monitoring
+  - ../base/cluster-monitoring
 #  - cert-issuer.yaml
