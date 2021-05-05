@@ -1,0 +1,39 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  secretName: grafana-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: grafana.sweforce.com
+  dnsNames:
+    - grafana.sweforce.com
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: grafana-exposed
+  namespace: monitoring
+spec:
+  rules:
+    - host: grafana.sweforce.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: grafana
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - grafana.sweforce.com
+      secretName: grafana-tls
+---
