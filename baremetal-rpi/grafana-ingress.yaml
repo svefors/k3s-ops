@@ -9,9 +9,9 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: grafana.sweforce.com
+  commonName: grafana.k3s-kluster.com
   dnsNames:
-    - grafana.sweforce.com
+    - grafana.k3s-kluster.com
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -22,7 +22,7 @@ metadata:
   namespace: monitoring
 spec:
   rules:
-    - host: grafana.sweforce.com
+    - host: grafana.k3s-kluster.com
       http:
         paths:
           - backend:
@@ -34,6 +34,6 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - grafana.sweforce.com
+        - grafana.k3s-kluster.com
       secretName: grafana-tls
 ---
