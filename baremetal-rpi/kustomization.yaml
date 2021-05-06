@@ -4,6 +4,7 @@ kind: Kustomization
 
 resources:
   - ../base/sources
+  - ../base/flux-monitoring
   - ../base/cert-manager
   - ../base/nginx
   - ../base/kubernetes-dashboard
@@ -12,3 +13,4 @@ resources:
   - ../base/cluster-monitoring
   - cert-issuer.yaml
   - grafana-ingress.yaml
+  - fl
