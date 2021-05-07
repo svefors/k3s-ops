@@ -13,4 +13,3 @@ resources:
   - ../base/cluster-monitoring
   - cert-issuer.yaml
   - grafana-ingress.yaml
-  - fl
