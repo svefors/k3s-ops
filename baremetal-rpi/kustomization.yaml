@@ -9,7 +9,7 @@ resources:
   - ../base/nginx
   - ../base/kubernetes-dashboard
 #  - ../../apps/minio
-#  - ../../apps/longhorn
+  - ../base/longhorn
   - ../base/cluster-monitoring
   - cert-issuer.yaml
   - grafana-ingress.yaml
