@@ -12,5 +12,6 @@ resources:
   - ../base/longhorn
   - ../base/cluster-monitoring
   - keycloak
+  - metallb
   - cert-issuer.yaml
   - grafana-ingress.yaml
