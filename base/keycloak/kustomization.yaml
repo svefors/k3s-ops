@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
   - codecentric.yaml
-  - helm-release.yaml
+#  - helm-release.yaml
