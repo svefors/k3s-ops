@@ -13,7 +13,7 @@ spec:
         kind: HelmRepository
         name: codecentric
         namespace: keycloak
-      version: "10.3.0"
+      version: "11.0.0"
   interval: 180m
   values:
     # Node labels for Pod assignment
@@ -23,7 +23,7 @@ spec:
       enabled: true
       image:
         repository: postgres
-        tag: 13.2-alpine
+        tag: 13.3-alpine
       postgresqlDataDir: /data/pgdata
       persistence:
         storageClass: longhorn
