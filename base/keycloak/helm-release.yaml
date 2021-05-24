@@ -26,7 +26,8 @@ spec:
         tag: 13.3-alpine
       postgresqlDataDir: /data/pgdata
       persistence:
-        mountPath: /data/
+        storageClass: longhorn
+        mountPath: /data
       postgresqlDatabase: keycloak
       securityContext:
         enabled: false
