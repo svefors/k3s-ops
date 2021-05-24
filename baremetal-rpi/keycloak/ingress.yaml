@@ -1,0 +1,35 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: auth-k3s-kluster
+  namespace: keycloak
+spec:
+  secretName: auth-k3s-kluster-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: auth.k3s-kluster.com
+  dnsNames:
+    - auth.k3s-kluster.com
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: auth-k3s-kluster
+  namespace: keycloak
+spec:
+  rules:
+    - host: auth.k3s-kluster.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: keycloak-http
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - auth.k3s-kluster.com
+      secretName: auth-k3s-kluster-tls
