@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: metallb-system
 
 resources:
+  - 0.namespace.yaml
   - ../../base/metallb
   - secret.yaml
   - config.yaml
