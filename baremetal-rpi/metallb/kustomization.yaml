@@ -5,6 +5,6 @@ namespace: metallb-system
 
 resources:
 #  - 0.namespace.yaml
-  - ../../base/metallb
+#  - ../../base/metallb
   - config.yaml
   - secret.yaml
