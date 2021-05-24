@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - 0.namespace.yaml
-  - github.com/metallb/metallb//manifests?ref=v0.9.6
+  - metallb.yaml
