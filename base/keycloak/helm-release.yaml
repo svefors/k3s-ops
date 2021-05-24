@@ -32,7 +32,7 @@ spec:
         enabled: false
       primary:
         nodeSelector:
-          k3s-kluster-role: worker
+          kubernetes.io/role: worker
 
     extraArgs:
 
