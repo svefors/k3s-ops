@@ -1,0 +1,83 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  releaseName: keycloak
+  chart:
+    spec:
+      chart: keycloak
+      sourceRef:
+        kind: HelmRepository
+        name: codecentric
+        namespace: keycloak
+      version: "11.0.0"
+  interval: 180m
+  values:
+    # Node labels for Pod assignment
+    nodeSelector:
+      kubernetes.io/role: worker
+    postgresql:
+      enabled: true
+      image:
+        repository: postgres
+        tag: 13.3-alpine
+      postgresqlDataDir: /data/pgdata
+      persistence:
+        mountPath: /data/
+      postgresqlDatabase: keycloak
+      securityContext:
+        enabled: false
+      primary:
+        nodeSelector:
+          k3s-kluster-role: worker
+
+    extraArgs:
+
+    image:
+      repository: svefors/keycloak
+      tag: 13.0.0
+      pullPolicy: IfNotPresent
+    ingress:
+      enabled: false
+      rules:
+        - host: auth.192.168.0.132.nip.io
+          paths:
+            - /
+    extraEnv: |
+      - name: KEYCLOAK_USER_FILE
+        value: /secrets/admin-creds/username
+      - name: KEYCLOAK_PASSWORD_FILE
+        value: /secrets/admin-creds/password
+      - name: PROXY_ADDRESS_FORWARDING
+        value: "true"
+      - name: JAVA_OPTS
+        value: >-
+          -XX:+UseContainerSupport
+          -Djava.net.preferIPv4Stack=true
+          -Djboss.modules.system.pkgs=$JBOSS_MODULES_SYSTEM_PKGS
+          -Djava.awt.headless=true
+          -Dkeycloak.profile.feature.docker=enabled
+          -Dkeycloak.profile.feature.account2=enabled
+          -Dkeycloak.profile.feature.token_exchange=enabled
+
+    extraVolumeMounts: |
+      - name: admin-creds
+        mountPath: /secrets/admin-creds
+        readOnly: true
+
+    # The keycloak-admin-creds needs to be provisioned, see the script.
+    extraVolumes: |
+      - name: admin-creds
+        secret:
+          secretName: keycloak-admin-creds
+
+    serviceMonitor:
+      enabled: true
+
+    prometheusRule:
+      enabled: true
+    test:
+      enabled: false

@@ -11,5 +11,6 @@ resources:
 #  - ../../apps/minio
   - ../base/longhorn
   - ../base/cluster-monitoring
+  - keycloak
   - cert-issuer.yaml
   - grafana-ingress.yaml

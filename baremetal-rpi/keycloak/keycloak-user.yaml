@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: keycloak-admin-creds
+    namespace: keycloak
+type: Opaque
+stringData:
+    username: ENC[AES256_GCM,data:jFXsSSU=,iv:uGAEieen/2BPBan7rhjNnhm81AvtNqbdvx+flyPHmVw=,tag:rk1AdS20Nr9mHkBkjTnXFQ==,type:str]
+    password: ENC[AES256_GCM,data:bXtGYcHGbN3p/vfbDrt/Dg==,iv:8JhhPSvVzgL/TvMtHLQ9Dh7kIvUph6gXQNVcNpyZ8Is=,tag:CGnFlDj9oJOsArZzqyzfbQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-05-24T16:00:24Z"
+    mac: ENC[AES256_GCM,data:LeoYZThDNMA0wrBs0mANJ7I8+hohNq9dRKlTjxAFFMv3FubJWU7CKPUz4ic2i42oMOEya6b421sDphWAbKrvdSPa8vkPUNDZEKB8+Duz9yxBqiihLDDKwYfgWa+uVsGehdN4sa1onWCFQ0tSJBiRJUDeX8udZjrlKC18R5sYBmY=,iv:FmVWHrXdDbfDo5iipF0AGaqZ8Lfu1HJ6mCauVN3f3KU=,tag:fB0fEXShyuwCc+Z3C8WXgA==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
