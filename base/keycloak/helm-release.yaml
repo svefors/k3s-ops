@@ -30,6 +30,8 @@ spec:
       postgresqlDatabase: keycloak
       securityContext:
         enabled: false
+      volumePermissions:
+        enabled: true
 
     extraArgs:
 
