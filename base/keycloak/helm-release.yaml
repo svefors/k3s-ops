@@ -30,9 +30,6 @@ spec:
       postgresqlDatabase: keycloak
       securityContext:
         enabled: false
-      primary:
-        nodeSelector:
-          kubernetes.io/role: worker
 
     extraArgs:
 
