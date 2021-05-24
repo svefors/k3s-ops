@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - 0.namespace.yaml
   - keycloak-user.yaml
-#  - ../../base/keycloak
+  - ../../base/keycloak
