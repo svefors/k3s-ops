@@ -15,3 +15,4 @@ resources:
   - metallb
   - cert-issuer.yaml
   - grafana-ingress.yaml
+  - ../base/strimzi
