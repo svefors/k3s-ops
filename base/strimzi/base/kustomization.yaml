@@ -11,8 +11,6 @@ resources:
   - 030-ClusterRoleBinding-strimzi-cluster-operator-kafka-broker-delegation.yaml
   - 031-ClusterRole-strimzi-entity-operator.yaml
   - 031-RoleBinding-strimzi-cluster-operator-entity-operator-delegation.yaml
-  - 032-ClusterRole-strimzi-topic-operator.yaml
-  - 032-RoleBinding-strimzi-cluster-operator-topic-operator-delegation.yaml
   - 033-ClusterRole-strimzi-kafka-client.yaml
   - 033-ClusterRoleBinding-strimzi-cluster-operator-kafka-client-delegation.yaml
   - 040-Crd-kafka.yaml
